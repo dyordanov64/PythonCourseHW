@@ -1,34 +1,29 @@
-#  8. Да се принтира буквата A на екрана както е дадено по-долу
+# Задача 8. Напишете програма, която намира максималната редица от последователни
+# нарастващи елементи в списък.
+# Пример: {3, 2, 3, 4, 2, 2, 4} -> {2, 3, 4}.
 
-for i in range(1,6) :
-    if i != 1 and i != 5 :
-        print('*', sep='', end='')
+
+
+
+list_of_nomber = []
+max_broi_povtorenia = 0
+list_increasing_numbers = []
+max_len_list_inc_nombers = []
+
+
+for i in range(len(list_of_nomber)) :
+    if (i == 0 or list_of_nomber[i] > list_of_nomber[i-1]) :
+        list_increasing_numbers.append(list_of_nomber[i])
+        # print(f'индекса е {i} списъка е {list_increasing_numbers}')
     else :
-        print(' ', sep='', end='')
-
-print('')     # минава на нов ред
-
-for j in range(1, 3) : # за два реда 
-    for i in range(1,6) : # на 1 и 5 та позиция разпечатваме звездичка
-        if i == 1 :
-            print('*', sep='', end='')
-        elif i == 5 :
-            print('*', sep='', end='') # след 5 тия символ минава на нов ред
-            print('')
-        else :
-            print(' ', sep='', end='') # за 2, 3, 4 позиция печата празен символ
-    
-print('*'*5) # разпечатва ред 5 позиции със звездички
-
-for j in range(1, 4) : # Повтаря горния цикъл но за три реда
-    for i in range(1,6) :
-        if i == 1 :
-            print('*', sep='', end='')
-        elif i == 5 :
-            print('*', sep='', end='')
-            print('')
-        else :
-            print(' ', sep='', end='')
-    
+        if len(max_len_list_inc_nombers) < len(list_increasing_numbers) :
+            max_len_list_inc_nombers = list_increasing_numbers[:]
+        # print(max_len_list_inc_nombers)
+        list_increasing_numbers.clear()        
+        list_increasing_numbers.append(list_of_nomber[i])
 
 
+
+if len(max_len_list_inc_nombers) < len(list_increasing_numbers) :
+    max_len_list_inc_nombers = list_increasing_numbers
+print(f'списък на увеличаващите се елементи {max_len_list_inc_nombers}')

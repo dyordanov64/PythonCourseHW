@@ -27,8 +27,8 @@ while True :
 print(f'оргиналния списък е {list_of_pozitiv_integer}')
 list_of_pozitiv_integer.sort()
 print(f'оргиналния сортиран списък е {list_of_pozitiv_integer}')
-for i in range(2 , len(list_of_pozitiv_integer)-1) :
-    new_list_of_pozitive_integer.append(list_of_pozitiv_integer.append(i))
+for i in range(2 , len(list_of_pozitiv_integer)-2) :
+    new_list_of_pozitive_integer.append(list_of_pozitiv_integer[i])
 
 print(f'новия списък без двете най-големи и двете най-малки числа е {new_list_of_pozitive_integer}')
 

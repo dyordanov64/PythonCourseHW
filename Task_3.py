@@ -1,43 +1,45 @@
-# Задача 3. Да се създаде програма, която чете думи като вход от клавиатурата, докато
-# потребителят не въведе празен ред. След като потребителят въведе празен ред,
-# програмата трябва да изведе всяка дума, въведена от потребителя точно веднъж.
-# Думите трябва да се показват в същия ред, в който са били въведени. Например, ако
-# потребителят въведе:
-# first
-# second
-# first
-# third
-# second
-# тогава програмата трябва да принтира само:
-# first
-# second
-# third
+# Задача 3. Да се създаде речник, който да съдържа информацията за дадено меню на
+# ресторант. Ключовете му трябва да са стрингове, а стойностите цените. Програмата ще
+# по иска от потребителя да въведе следната информация:
+# - Ако потребителят въведе името на дадено ястие от менюто, тогава програмата
+# да принтира цената и колко е общата цена до момента. След това да пита
+# отново дали потребителят не иска да въведе нещо друго.
+# - Ако потребителят въведе име на ястие, което не е в менюто, тогава програмата
+# да изведе подходящо съобщение. След което отново програмата да пита
+# потребителя да избере нещо друго от менюто.
+# - Ако потребителят въведе празен стринг, тогава програмата да спре да подканва
+# потребителя да избира от менюто и да изведе на екрана общата крайна сума.
+# Пример:
+# Order: sandwich
+# sandwich costs 10, total is 10
+# Order: tea
+# tea costs 7, total is 17
+# Order: elephant
+# Sorry, we are fresh out of elephant today. Order: <enter>
+# Your total is 17
 
-List_of_words =['new', 'york', 'news', 'paper', 'new']
-New_List = []
+menu = {
+    'sandwich': 10,
+    'burger' : 15,
+    'chkembe': 3,
+    'coca-cola': 5,
+    'beer': 11    
+}
 
-# Запълване на списък от думи докато не не въведе празен ред
-# while True :
-#     word = input('Въведете дума и натиснете Enter = ')
-#     if word == '' :
-#         break
-#     else :
-#         List_of_words.append(word)
-
-# for i in range(len(List_of_words)) :
+# Разпечатваме менюто за да го вижда потребителя
+for dich, cost in menu.items() :
+    print(dich, cost)
+total = 0
+# цикъв за въвеждане на озбора от потребителя
+while True :
+    dish = input('Would you like something from the menu, your order? =')
+    if dish in menu :
+        total = total + menu[dish]
+        print(f'{dish} cost {menu[dish]}, total is {total} ')
+    elif dish == '' : # при избор празен стринг се излиза от цикъла
+        break
+    else :
+        print('Sorry, we are fresh out of elephant today.') # при грешен избор връщане към нов избор
     
-#     for j in range(i+1,len(List_of_words)) :
-#         print(i,j)
-#         if List_of_words[i] == List_of_words[j] :
-#             List_of_words.pop(j)
-#         continue
 
-# print(f'това е списъка от думи {List_of_words}')
-# print(New_List)
-
-for i in range(len(List_of_words)) :
- print(len(List_of_words))
- print(List_of_words.count(List_of_words[i]))
-
-
-
+print(f'Your total is {total}')

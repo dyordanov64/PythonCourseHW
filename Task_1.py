@@ -1,28 +1,26 @@
-# Задача 1. Да се напише програма, която сортира в нарастващ ред списък, чиито елементи
-# са tuples. При сортирането да се взема предвид последният елемент във всеки tuple. В
-# списъкът не трябва да се съдържат празни tuples.
-# Вход: [(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
-# Изход: [(2, 1), (1, 2), (2, 3), (4, 4), (2, 5)]
+# Задача 1. Да се напише функция, която да търси в списък. Като параметър да приема
+# списък и да принтира ако елементът е в списъка неговата позиция, ако ли не да
+# принтира, че не е намерен.
+# Вход: [1, 2, 5, 9, 10], 5 Вход: [1, 2, 5, 9, 10], 3
+# Изход: Position 2 Изход: Not found
 
 
-list1 = [(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
-list2 = []
-print(f'оргиналния списък е {list1}')
+def List_search(List, Element) :
+    # for i in range(len(List)) : 
+    #     if Element == List[i] :
+    #         pos = i
+    # if print(f'Position {pos}')
+    # print('Not Found')
 
-# min = list1[0]
-# print(type(min))
+    if Element in List :
+        print(f'Position {List.index(Element)}')
+    else :
+        print('Not Found')
 
-# цикъл за добавяне на елементи в list2
-for ind in range(len(list1)) :
-    min=list1[0]
-    # цикъл за намиране на най малкия елемент на list1
-    for x in list1 :
-        
-        if x[1] < min[1] :
-            min = x
-            
-    list1.pop(list1.index(min)) # премахваме най-малкия елемнт от list1 
-    list2.append(min) # и го добавяме в list2
-    # print(list1, list2)
-    
-print(f'сортирания списък е {list2}')
+
+
+
+List_1 = [1, 2, 5, 9, 10]
+
+List_search(List_1, 3)
+

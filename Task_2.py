@@ -1,22 +1,24 @@
-# Задача 2. Да се напише програма, която да създаде множество от множества, което да
-# съдържа: А - B, B, B-A, A-B + B-A, A & B, A | B, където A и B са два списъка, чиито
-# елементи се въвеждат от клавиатурата.
+# Задача 2. Да се промени горната задача така, че тя да връща стойност и след това да се
+# принтира резултатът в зависимост от върната стойност от функцията. Да се напише и
+# още една функция, която да принтира резултатът от търсенето.
+# Вход: [1, 2, 5, 9, 10], 5 Вход: [1, 2, 5, 9, 10], 3
+# Изход: Position 2 Изход: Not found
 
-List_A = [1,2,3,4]
-List_B = [4,5,6]
 
-union_sets = set()
+def List_search(List, Element) :
+    if Element in List:
+            return List.index(Element)
 
-Set_A = set(List_A)
-Set_B = set(List_B)
+def print_search(x) :
+    if x != None :
+        print(f'Position {x}')
+    else :
+        print('Not Found')
 
-# print(Set_B)
 
-union_sets = (Set_A - Set_B),Set_B,(Set_B - Set_A),((Set_A - Set_B)|(Set_B - Set_A)),(Set_A & Set_B),(Set_A|Set_B)
 
-z=(Set_B - Set_A)
+List_1 = [1, 2, 5, 9, 10]
 
-print(z)
+x = List_search(List_1, 3)
 
-print(f'обединеното множество е {union_sets}')
-
+print_search(x)
